@@ -74,3 +74,15 @@ L.control.fullscreen().addTo(map);
 overlays.gpx.addTo(map);
 
 // GPX Track Layer implementieren
+var track = 'data/btt-etappe-29-landeck-ischgl.gpx'; // URL to your GPX file or the GPX itself
+new L.GPX(track, {
+    async: true,
+    marker_options: {
+        startIconUrl: 'icons/start.png',
+        endIconUrl: 'icons/finish.png',
+        iconSize: [,],
+        shadowSize: [,]
+    }
+}).on('loaded', function(e) {
+  map.fitBounds(e.target.getBounds());
+}).addTo(overlays.gpx);
