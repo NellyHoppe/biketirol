@@ -80,9 +80,12 @@ let gpxTrack = new L.GPX(track, {
         marker_options: {
             startIconUrl: 'icons/start.png',
             endIconUrl: 'icons/finish.png',
-            iconSize: [,],
-            shadowSize: [,]
+            shadowUrl: null,
+            iconSize: [32, 37],
+            iconAnchor: [16, 37]
+        },
+        polyline_options: {
+            color: "black",
+            dashArray: [2,5]
         }
-}).on('loaded', function(e) {
-  map.fitBounds(e.target.getBounds());
 }).addTo(overlays.gpx);
